@@ -1,0 +1,43 @@
+Tema: 12. Aplicatie salarizare, calcul salarii si contributii, generare fluturasi de salarii
+ 
+Proiectul propune o solutie pentru calcularea salariilor. Datele de intrare se stocheaza in baza de date prin incarcarea fisierului monthlypayroll.txt cu structura:
+Number(2)-Luna calcul salariilor
+Number(4)-An calcul salariilor
+Number(20)-Venitul de baza (VenitBaza)
+Number(20)-Suma totala sporuri pe luna curenta(Sporuri)
+Number(20)-Suma totala retineri pe luna curenta(Retineri)
+Char(200)-Nume angajat
+Char(200)-Prenume angajat
+
+La incarcarea datelor in baza de date aplicatia calculeaza si stocheaza in baza de date:
+VenitBrut=VenitBaza+Sporuri
+CAS-Contributia de asigurari de sanatate(venitBrut*25)/100
+CASS-Contributia de asigurari sociale(venitBrut*10)/100
+VenitImpozabil=VenitBrut-(CAS+CASS)
+ImpozitVenit=(VenitImpozabil*10)/100
+VenitNet=VenitImpozabil-ImpozitVenit
+RestPlata=VenitNet-Retineri
+
+
+Entitatea Employee
+
+Long Id
+String nume
+String prenume
+Date dataAngajare
+
+Entitatea Payroll
+Long id;
+int an;
+int luna;
+Long VenitBaza;
+Long Sporuri;
+Long Retineri;
+Long VenitBrut;
+Long CAS;
+Long CASS;
+Long VenitImpozabil
+Long Impozit;
+Long VenitNet;
+Long RestPlata
+
